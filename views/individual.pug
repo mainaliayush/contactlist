@@ -1,0 +1,36 @@
+html
+  head
+    title Contact Info
+    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css", integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T", crossorigin="anonymous")
+  body
+    .container.mt-5
+      .row
+      .row
+        .col-12
+          a(href='/contacts') &larr; Back to List
+          .row
+          hr
+          h1 Contact Info
+          h2 #{contacts.name}
+          hr
+          .row
+            .col-sm-6
+              h4 Phone number:
+              p #{contacts.phone}
+              if !contacts.cByPhone
+                i May NOT be contacted by phone or text.
+              hr
+              h4 Email address:
+              p #{contacts.email}
+              if !contacts.cByEmail
+                i May NOT be contacted by email.
+              hr
+              h4 Address:
+              p #{contacts.address}
+              if !contacts.cByMail
+                i May NOT be contacted by mail.
+              hr
+          .col-sm-6
+            a(href=`/contacts/${contacts.id}/edit`, class="btn btn-primary btn-md my-2 ") Edit Contact
+            br
+            a(href=`/contacts/${contacts.id}/delete`, class="btn btn-danger btn-md my-2") Delete Contact

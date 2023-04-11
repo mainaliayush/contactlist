@@ -1,0 +1,72 @@
+doctype html
+html
+  head
+    title Contacts
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+  body
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    .container-fluid
+      p #{userName}
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarNav.collapse.navbar-collapse
+        ul.navbar-nav.ml-auto
+          li.nav-item
+            a.nav-link(href='/login') Sign in
+  .container-fluid.mt-5
+    .row
+      .col-md-8.offset-md-2
+        h1.mb-4 Create Contact
+        form(action="/contacts", method="POST")
+          .row
+            .col-sm-6.mb-4
+              fieldset
+                legend Basic Info
+                .form-group
+                  label(for="firstName") First Name:
+                  input.form-control(type="text", name="firstName", id="firstName", required)
+                .form-group
+                  label(for="lastName") Last Name:
+                  input.form-control(type="text", name="lastName", id="lastName", required)
+                .form-group
+                  label(for="phone") Phone:
+                  input.form-control(type="text", name="phone", id="phone", required)
+                .form-group
+                  label(for="email") Email:
+                  input.form-control(type="email", name="email", id="email", required)
+            .col-sm-6.mb-4
+              fieldset
+                legend Address
+                .form-group
+                  label(for="street") Street:
+                  input.form-control(type="text", name="street", id="street", required)
+                .form-group
+                  label(for="city") City:
+                  input.form-control(type="text", name="city", id="city", required)
+                .form-group
+                  label(for="state") State:
+                  input.form-control(type="text", name="state", id="state", required)
+                .form-group
+                  label(for="zip") Zip:
+                  input.form-control(type="text", name="zip", id="zip", required)
+                .form-group
+                  label(for="country") Country:
+                  input.form-control(type="text", name="country", id="country", required)
+          .row
+            .col-sm-6.mb-4
+              fieldset
+                legend Contact Preferences
+                .form-check
+                  input.form-check-input(type="checkbox", name="cByPhone", id="cByPhone")
+                  label.form-check-label(for="cByPhone") Contact by phone
+                .form-check
+                  input.form-check-input(type="checkbox", name="cByEmail", id="cByEmail")
+                  label.form-check-label(for="cByEmail") Contact by email
+                .form-check
+                  input.form-check-input(type="checkbox", name="cByMail", id="cByMail")
+                  label.form-check-label(for="cByMail") Contact by mail
+                  br
+            .col-sm-6.d-flex.align-items-end.mb-4
+              button.btn.btn-primary(type="submit") Submit

@@ -1,0 +1,37 @@
+html
+  head
+    title Contact List
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+    link(rel="stylesheet" href="/views/styles.css")  
+
+  body
+  .container.mt-5
+    h1 Contact List
+    a.btn.btn-primary.mb-3(href='/contacts') Create a new Contact
+    .table-responsive
+      table.table
+        //- thead.thead-light
+        //-   tr
+        //-     th(scope='col') Name
+        //-     th(scope='col') Phone
+        //-     th(scope='col') Email
+        //-     th(scope='col') Address 
+        //-     th(scope='col') Contact
+        tbody
+          each modifiedContact in contacts
+            tr
+              td
+                a(href=`/${modifiedContact.id}`)= modifiedContact.name
+              td.d-block.d-md-table-cell= modifiedContact.phone
+              td.d-block.d-md-table-cell= modifiedContact.email
+              td.d-block.d-md-table-cell= modifiedContact.address
+              td.d-block.d-md-table-cell 
+                input(type="checkbox" name="cByPhone" id="text" disabled checked = modifiedContact.cByPhone)
+                label(for="cByPhone") Phone
+                br
+                input(type="checkbox" name="cByEmail" id="text" disabled checked = modifiedContact.cByEmail)
+                label(for="cByEmail") Email
+                br
+                input(type="checkbox" name="cByMail" id="text" disabled checked = modifiedContact.cByMail)
+                label(for="cByMail") Mail
+                br

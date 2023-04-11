@@ -1,0 +1,63 @@
+html
+  head
+    title Contacts
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+  body
+    div.container
+      div.section
+        h1.my-5 Edit Contact
+
+        form(action=`/${contacts.id}/edit` method="POST")
+          div.row
+            div.col-md-6
+              fieldset
+                legend.mb-4 Basic Info
+                div.form-group
+                  label(for="firstName") First Name:
+                  input.form-control(type="text" name="firstName" id="firstName" value=contacts.fName required)
+                div.form-group
+                  label(for="lastName") Last Name:
+                  input.form-control(type="text" name="lastName" id="lastName" value=contacts.lName required)
+                div.form-group
+                  label(for="phone") Phone:
+                  input.form-control(type="text" name="phone" id="phone" value=contacts.phNumber required)
+                div.form-group
+                  label(for="email") Email:
+                  input.form-control(type="email" name="email" id="email" value=contacts.email required)
+            div.col-md-6
+              fieldset
+                legend.mb-4 Address
+                div.form-group
+                  label(for="street") Street:
+                  input.form-control(type="text" name="street" id="street" value=contacts.street required)
+                div.form-group
+                  label(for="city") City:
+                  input.form-control(type="text" name="city" id="city" value=contacts.city required)
+                div.form-group
+                  label(for="state") State:
+                  input.form-control(type="text" name="state" id="state" value=contacts.state required)
+                div.form-group
+                  label(for="zip") Zip:
+                  input.form-control(type="text" name="zip" id="zip" value=contacts.zip required)
+                div.form-group
+                  label(for="country") Country:
+                  input.form-control(type="text" name="country" id="country" value=contacts.country required)
+          div.row
+            div.col-md-6
+              fieldset
+                legend.mb-4 Contact Preferences
+                div.form-group.form-check
+                  input.form-check-input(type="checkbox" name="cByPhone" id="cByPhone" checked=contacts.contactByPhone)
+                  label.form-check-label(for="cByPhone") Contact by phone
+                div.form-group.form-check
+                  input.form-check-input(type="checkbox" name="cByEmail" id="cByEmail" checked=contacts.contactByEmail)
+                  label.form-check-label(for="cByEmail") Contact by email
+                div.form-group.form-check
+                  input.form-check-input(type="checkbox" name="cByMail" id="cByMail" checked=contacts.contactByMail)
+                  label.form-check-label(for="cByMail") Contact by mail
+            div.col-md-6
+              div.form-group.text-right
+                button.btn.btn-primary.mr-3(type="submit") Edit
+                a.btn.btn-secondary(href='/') Cancel
